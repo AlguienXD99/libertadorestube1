@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LibertaTube</title>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -23,27 +27,34 @@
       padding: 0 16px;
       color: white;
       z-index: 1000;
+      gap: 8px;
     }
     .top-bar .logo {
       font-weight: bold;
       font-size: 20px;
-      margin-right: 16px;
+      flex-shrink: 0;
     }
-    .top-bar input[type="text"] {
+    .search-container {
+      display: flex;
+      flex: 1;
+      gap: 8px;
+    }
+    .search-container input[type="text"] {
       flex: 1;
       height: 32px;
       border: none;
       border-radius: 2px;
       padding: 0 8px;
+      max-width: 100%;
     }
-    .top-bar button {
-      margin-left: 8px;
+    .search-container button {
       height: 32px;
       border: none;
       border-radius: 2px;
       background-color: #cc0000;
       color: white;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     /* Contenedor principal */
@@ -115,7 +126,7 @@
       color: #555;
     }
 
-    /* --- Responsive para móviles --- */
+    /* Responsive */
     @media (max-width: 768px) {
       .sidebar {
         position: relative;
@@ -134,10 +145,7 @@
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 12px;
       }
-      .top-bar input[type="text"] {
-        height: 28px;
-      }
-      .top-bar button {
+      .search-container input[type="text"], .search-container button {
         height: 28px;
       }
     }
@@ -148,13 +156,14 @@
         height: auto;
         padding: 8px;
       }
-      .top-bar input[type="text"] {
+      .search-container {
+        flex-direction: column;
+        width: 100%;
+      }
+      .search-container input[type="text"],
+      .search-container button {
         width: 100%;
         margin: 4px 0;
-      }
-      .top-bar button {
-        width: 100%;
-        margin: 4px 0 0 0;
       }
     }
   </style>
@@ -164,8 +173,10 @@
   <!-- Barra superior -->
   <div class="top-bar">
     <div class="logo">LibertaTube</div>
-    <input type="text" placeholder="Buscar">
-    <button>Buscar</button>
+    <div class="search-container">
+      <input type="text" placeholder="Buscar">
+      <button>Buscar</button>
+    </div>
   </div>
 
   <div class="container">
