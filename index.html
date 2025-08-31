@@ -87,10 +87,20 @@
       overflow: hidden;
       cursor: pointer;
     }
-    .video-card img {
+
+    /* Miniatura uniforme 16:9 */
+    .video-card .thumb {
       width: 100%;
-      height: auto;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background-color: #000;
     }
+    .video-card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* recorta manteniendo proporción */
+    }
+
     .video-card .info {
       padding: 8px;
     }
@@ -128,7 +138,9 @@
     <div class="content">
       <!-- Ejemplos de videos -->
       <div class="video-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/BatallaDeMaipu.jpg" alt="Video">
+        <div class="thumb">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/BatallaDeMaipu.jpg" alt="Video">
+        </div>
         <div class="info">
           <h4>Batalla de Maipú</h4>
           <p>Don José de San Martín</p>
@@ -136,7 +148,9 @@
       </div>
 
       <div class="video-card">
-        <img src="https://e.rpp-noticias.io/xlarge/2017/07/28/proclamacion-453440mp3_453441.png" alt="Video">
+        <div class="thumb">
+          <img src="https://e.rpp-noticias.io/xlarge/2017/07/28/proclamacion-453440mp3_453441.png" alt="Video">
+        </div>
         <div class="info">
           <h4>Discurso de Independencia</h4>
           <p>Don José de San Martín</p>
@@ -144,7 +158,9 @@
       </div>
 
       <div class="video-card">
-        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROUnRTPNj-i1pqkHpGXKZ50wunYrwTaxKHaNgEgW_EprwCj-yB7wedjoLQNhM1XTWJpnYNUkrg0nt4g296Est4ke6KmSzpvVTlayLbSDg" alt="Video">
+        <div class="thumb">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROUnRTPNj-i1pqkHpGXKZ50wunYrwTaxKHaNgEgW_EprwCj-yB7wedjoLQNhM1XTWJpnYNUkrg0nt4g296Est4ke6KmSzpvVTlayLbSDg" alt="Video">
+        </div>
         <div class="info">
           <h4>Vlog del Libertador</h4>
           <p>Don José de San Martín</p>
@@ -152,7 +168,9 @@
       </div>
 
       <div class="video-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg" alt="Video">
+        <div class="thumb">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg" alt="Video">
+        </div>
         <div class="info">
           <h4>MI PRIMERA LIBERACIÓN DIFICULTAD EXTREME!!!!</h4>
           <p>Don José de San Martín</p>
